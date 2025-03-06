@@ -24,6 +24,9 @@
 		],
 		"client": [
 			"com.arja.runeforge.RuneforgeClient"
+		],
+		"terrablender": [
+			"com.arja.runeforge.world.biome.ModTerrablenderAPI"
 		]
 	},
 	"mixins": [

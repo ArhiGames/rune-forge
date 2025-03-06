@@ -1,4 +1,4 @@
-﻿package com.arja.runeforge.world;
+package com.arja.runeforge.world;
 
 import com.arja.runeforge.Runeforge;
 import net.minecraft.registry.Registerable;

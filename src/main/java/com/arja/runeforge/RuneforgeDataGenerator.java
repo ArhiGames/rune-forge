@@ -3,6 +3,8 @@ package com.arja.runeforge;
 import com.arja.runeforge.datagen.*;
 import com.arja.runeforge.world.ModConfiguredFeatures;
 import com.arja.runeforge.world.ModPlacedFeatures;
+import com.arja.runeforge.world.biome.ModBiomes;
+import com.arja.runeforge.world.dimension.ModDimensions;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -20,6 +22,7 @@ public class RuneforgeDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
 		pack.addProvider(ModRegistryDataGenerator::new);
+		pack.addProvider(ModWorldGenerator::new);
 	}
 
 	@Override
@@ -27,5 +30,7 @@ public class RuneforgeDataGenerator implements DataGeneratorEntrypoint {
 	{
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrapType);
 	}
 }

@@ -1,4 +1,4 @@
-﻿package com.arja.runeforge.world.gen;
+package com.arja.runeforge.world.gen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
@@ -19,6 +19,8 @@ public class ModWorldGeneration extends FabricDynamicRegistryProvider
     {
         entries.addAll(wrapperLookup.getOrThrow(RegistryKeys.CONFIGURED_FEATURE));
         entries.addAll(wrapperLookup.getOrThrow(RegistryKeys.PLACED_FEATURE));
+        entries.addAll(wrapperLookup.getOrThrow(RegistryKeys.BIOME));
+        entries.addAll(wrapperLookup.getOrThrow(RegistryKeys.DIMENSION_TYPE));
     }
 
     @Override
