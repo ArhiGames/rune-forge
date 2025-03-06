@@ -1,5 +1,8 @@
 package com.arja.runeforge;
 
+import com.arja.runeforge.block.ModBlocks;
+import com.arja.runeforge.item.ModItems;
+import com.arja.runeforge.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -14,5 +17,8 @@ public class Runeforge implements ModInitializer
 	public void onInitialize()
 	{
 		LOGGER.info("Hello Fabric world!");
+
+		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 	}
 }
