@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "rune-forge",
+	"version": "${version}",
+	"name": "rune-forge",
+	"description": "The legendary rune forge mod",
+	"authors": [
+		"Arhi Games",
+		"Atori Studios"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/rune-forge/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.arja.runeforge.Runeforge"
+		],
+		"fabric-datagen": [
+			"com.arja.runeforge.RuneforgeDataGenerator"
+		],
+		"client": [
+			"com.arja.runeforge.RuneforgeClient"
+		]
+	},
+	"mixins": [
+		"rune-forge.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
