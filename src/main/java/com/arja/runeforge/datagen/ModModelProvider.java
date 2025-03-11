@@ -25,5 +25,6 @@ public class ModModelProvider extends FabricModelProvider
     public void generateItemModels(ItemModelGenerator itemModelGenerator)
     {
         itemModelGenerator.register(ModItems.KEBAB, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_KENAZ, Models.GENERATED);
     }
 }

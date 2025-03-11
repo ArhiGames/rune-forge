@@ -22,6 +22,8 @@ public class ModItems
     public static final Item KEBAB = registerItem("kebab", Item::new, new Item.Settings()
             .food(ModFoodComponents.KEBAB_FOOD_COMPONENT, ModFoodComponents.KEBAB_CONSUMABLE_COMPONENT));
 
+    public static final Item RUNE_KENAZ = registerItem("kenaz", Item::new, new Item.Settings());
+
     public static final RegistryKey<ItemGroup> MAGIC_TOOLS_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(),
             Identifier.of(Runeforge.MOD_ID, "magic_tools"));
     public static final ItemGroup MAGIC_TOOLS_ITEM_GROUP = FabricItemGroup.builder()
@@ -54,6 +56,7 @@ public class ModItems
         ItemGroupEvents.modifyEntriesEvent(MAGIC_TOOLS_ITEM_GROUP_KEY).register(itemgroup ->
         {
             itemgroup.add(KEBAB);
+            itemgroup.add(RUNE_KENAZ);
         });
     }
 }
