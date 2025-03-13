@@ -3,7 +3,8 @@
 	"package": "com.arja.runeforge.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"BlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

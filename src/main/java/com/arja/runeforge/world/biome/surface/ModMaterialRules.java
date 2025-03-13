@@ -9,7 +9,7 @@ import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 public class ModMaterialRules
 {
     private static final MaterialRules.MaterialRule DIRT = makeStateRule(Blocks.DIAMOND_BLOCK);
-    private static final MaterialRules.MaterialRule GRASS_BLOCK = makeStateRule(Blocks.GOLD_BLOCK);
+    private static final MaterialRules.MaterialRule GRASS_BLOCK = makeStateRule(Blocks.GRASS_BLOCK);
     private static final MaterialRules.MaterialRule LEMON = makeStateRule(ModBlocks.LEMON_BLOCK);
 
     public static MaterialRules.MaterialRule makeRules()
