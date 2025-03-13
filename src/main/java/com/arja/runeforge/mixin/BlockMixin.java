@@ -48,30 +48,27 @@ public abstract class BlockMixin
     )
     private static void smeltDroppedStacks(BlockState state, ServerWorld world, BlockPos pos, @Nullable BlockEntity blockEntity, @Nullable Entity entity, ItemStack stack, CallbackInfoReturnable<List<ItemStack>> cir)
     {
-        if (entity instanceof PlayerEntity player)
+        List<ItemStack> drops = new ArrayList<>();
+        List<ItemStack> originalDrops = cir.getReturnValue();
+
+        MinecraftServer server = world.getServer();
+        Map<Identifier, Recipe<?>> smeltableRecipes = getSmeltableRecipes(server);
+        for (ItemStack drop : originalDrops)
         {
-            List<ItemStack> drops = new ArrayList<>();
-            List<ItemStack> originalDrops = cir.getReturnValue();
-
-            MinecraftServer server = world.getServer();
-            Map<Identifier, Recipe<?>> smeltableRecipes = getSmeltableRecipes(server);
-            for (ItemStack drop : originalDrops)
+            smeltableRecipes.forEach((id, recipe) ->
             {
-                smeltableRecipes.forEach((id, recipe) ->
+                if (recipe.getIngredientPlacement().getIngredients().getFirst().test(drop))
                 {
-                    if (recipe.getIngredientPlacement().getIngredients().getFirst().test(drop))
-                    {
-                        ItemStack itemStack = recipe.getDisplays().getFirst().result().getFirst(new ContextParameterMap.Builder().build(new ContextType.Builder().build()));
-                        itemStack.setCount(drop.getCount());
-                        drops.add(itemStack);
-                    }
-                });
-            }
+                    ItemStack itemStack = recipe.getDisplays().getFirst().result().getFirst(new ContextParameterMap.Builder().build(new ContextType.Builder().build()));
+                    itemStack.setCount(drop.getCount());
+                    drops.add(itemStack);
+                }
+            });
+        }
 
-            if (!drops.isEmpty())
-            {
-                cir.setReturnValue(drops);
-            }
+        if (!drops.isEmpty())
+        {
+            cir.setReturnValue(drops);
         }
     }
 
