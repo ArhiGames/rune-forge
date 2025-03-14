@@ -1,7 +1,8 @@
 package com.arja.runeforge.command;
 
 import com.arja.runeforge.command.suggestion.RuneSuggestionProvider;
-import com.mojang.brigadier.arguments.StringArgumentType;
+import com.arja.runeforge.component.ModDataComponents;
+import com.arja.runeforge.component.custom.RuneComponent;
 import com.mojang.brigadier.context.CommandContext;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.IdentifierArgumentType;
@@ -33,11 +34,11 @@ public class ModCommands
             ItemStack stack = player.getMainHandStack();
             if (!stack.isEmpty())
             {
-                player.sendMessage(Text.of("Die Rune '" + runeName + "' wurde angewendet!"), false);
+                stack.set(ModDataComponents.RUNE_COMPONENT_TYPE, new RuneComponent(runeName));
             }
             else
             {
-                player.sendMessage(Text.of("Halte ein Werkzeug in der Hand, um eine Rune anzuwenden!"), false);
+                player.sendMessage(Text.of("Couldn't apply rune called " + runeName + " to your main hand item!"), false);
             }
         }
         return 1;

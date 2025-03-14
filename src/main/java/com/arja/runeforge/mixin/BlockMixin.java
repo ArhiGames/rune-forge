@@ -1,9 +1,12 @@
 package com.arja.runeforge.mixin;
 
+import com.arja.runeforge.component.ModDataComponents;
+import com.arja.runeforge.component.custom.RuneComponent;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.*;
 import net.minecraft.server.MinecraftServer;
@@ -34,27 +37,37 @@ public abstract class BlockMixin
     )
     private static void smeltDroppedStacks(BlockState state, ServerWorld world, BlockPos pos, @Nullable BlockEntity blockEntity, @Nullable Entity entity, ItemStack stack, CallbackInfoReturnable<List<ItemStack>> cir)
     {
-        List<ItemStack> drops = new ArrayList<>();
-        List<ItemStack> originalDrops = cir.getReturnValue();
-
-        MinecraftServer server = world.getServer();
-        Map<Identifier, Recipe<?>> smeltableRecipes = getSmeltableRecipes(server);
-        for (ItemStack drop : originalDrops)
+        if (entity instanceof PlayerEntity player)
         {
-            smeltableRecipes.forEach((id, recipe) ->
+            if (player.getMainHandStack().contains(ModDataComponents.RUNE_COMPONENT_TYPE))
             {
-                if (recipe.getIngredientPlacement().getIngredients().getFirst().test(drop))
-                {
-                    ItemStack itemStack = recipe.getDisplays().getFirst().result().getFirst(new ContextParameterMap.Builder().build(new ContextType.Builder().build()));
-                    itemStack.setCount(drop.getCount());
-                    drops.add(itemStack);
-                }
-            });
-        }
+                RuneComponent comp = player.getMainHandStack().get(ModDataComponents.RUNE_COMPONENT_TYPE);
+                if (!comp.runeId().equals("rune-forge:kenaz"))
+                    return;
 
-        if (!drops.isEmpty())
-        {
-            cir.setReturnValue(drops);
+                List<ItemStack> drops = new ArrayList<>();
+                List<ItemStack> originalDrops = cir.getReturnValue();
+
+                MinecraftServer server = world.getServer();
+                Map<Identifier, Recipe<?>> smeltableRecipes = getSmeltableRecipes(server);
+                for (ItemStack drop : originalDrops)
+                {
+                    smeltableRecipes.forEach((id, recipe) ->
+                    {
+                        if (recipe.getIngredientPlacement().getIngredients().getFirst().test(drop))
+                        {
+                            ItemStack itemStack = recipe.getDisplays().getFirst().result().getFirst(new ContextParameterMap.Builder().build(new ContextType.Builder().build()));
+                            itemStack.setCount(drop.getCount());
+                            drops.add(itemStack);
+                        }
+                    });
+                }
+
+                if (!drops.isEmpty())
+                {
+                    cir.setReturnValue(drops);
+                }
+            }
         }
     }
 

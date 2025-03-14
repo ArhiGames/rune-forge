@@ -3,6 +3,7 @@ package com.arja.runeforge;
 import com.arja.runeforge.block.ModBlocks;
 import com.arja.runeforge.command.ModCommands;
 import com.arja.runeforge.command.suggestion.RuneSuggestionProvider;
+import com.arja.runeforge.component.ModDataComponents;
 import com.arja.runeforge.item.ModItems;
 import com.arja.runeforge.world.gen.ModWorldGeneration;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -32,10 +33,7 @@ public class Runeforge implements ModInitializer
 		ModBlocks.registerModBlocks();
 
 		ModCommands.registerCommands();
-	}
 
-	public static void applyRune(ItemStack stack, String runeType)
-	{
-		//stack.set(DataComponentTypes.CUSTOM_NAME, new StringC);
+		ModDataComponents.registerDataComponents();
 	}
 }
