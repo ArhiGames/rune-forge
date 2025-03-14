@@ -2,12 +2,12 @@
   "type": "rune-forge:niflheimdim_type",
   "generator": {
     "type": "minecraft:noise",
-    "settings": "minecraft:nether",
+    "settings": "minecraft:overworld",
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "rune-forge:test_biome",
+          "biome": "rune-forge:frozen_forest",
           "parameters": {
             "temperature": 0.15,
             "humidity": 0,

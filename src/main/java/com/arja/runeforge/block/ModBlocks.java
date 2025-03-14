@@ -3,9 +3,7 @@ package com.arja.runeforge.block;
 import com.arja.runeforge.Runeforge;
 import com.arja.runeforge.item.ModItems;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -24,6 +22,17 @@ public class ModBlocks
             Block::new,
             AbstractBlock.Settings.create().sounds(BlockSoundGroup.MUD),
             true);
+
+    //------------------------------------------------------------------------------------------------------------------
+    //Ash tree
+    //------------------------------------------------------------------------------------------------------------------
+    public static final Block ASH_LOG = register("ash_log", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LOG), true);
+    public static final Block ASH_WOOD = register("ash_wood", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_WOOD), true);
+    public static final Block STRIPPED_ASH_LOG = register("stripped_ash_log", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG), true);
+    public static final Block STRIPPED_ASH_WOOD = register("stripped_ash_wood", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD), true);
+    public static final Block ASH_PLANKS = register("ash_planks", Block::new, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS), true);
+    public static final Block ASH_LEAVES = register("ash_leaves", Block::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), true);
+    public static final Block ASH_SAPLING = register("ash_sapling", SaplingBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), true);
 
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem)
     {
@@ -58,6 +67,13 @@ public class ModBlocks
         ItemGroupEvents.modifyEntriesEvent(ModItems.MAGIC_TOOLS_ITEM_GROUP_KEY).register((itemGroup) ->
         {
             itemGroup.add(LEMON_BLOCK.asItem());
+            itemGroup.add(ASH_LEAVES.asItem());
+            itemGroup.add(ASH_LOG.asItem());
+            itemGroup.add(STRIPPED_ASH_LOG.asItem());
+            itemGroup.add(ASH_WOOD.asItem());
+            itemGroup.add(ASH_SAPLING.asItem());
+            itemGroup.add(STRIPPED_ASH_WOOD.asItem());
+            itemGroup.add(ASH_PLANKS.asItem());
         });
     }
 }
