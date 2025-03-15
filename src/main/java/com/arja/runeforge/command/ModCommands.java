@@ -3,6 +3,7 @@ package com.arja.runeforge.command;
 import com.arja.runeforge.command.suggestion.RuneSuggestionProvider;
 import com.arja.runeforge.component.ModDataComponents;
 import com.arja.runeforge.component.custom.RuneComponent;
+import com.arja.runeforge.rune.RuneManager;
 import com.mojang.brigadier.context.CommandContext;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.IdentifierArgumentType;
@@ -32,11 +33,7 @@ public class ModCommands
         if (source.getEntity() instanceof net.minecraft.server.network.ServerPlayerEntity player)
         {
             ItemStack stack = player.getMainHandStack();
-            if (!stack.isEmpty())
-            {
-                stack.set(ModDataComponents.RUNE_COMPONENT_TYPE, new RuneComponent(runeName));
-            }
-            else
+            if (!RuneManager.applyRune(new RuneComponent(runeName), stack))
             {
                 player.sendMessage(Text.of("Couldn't apply rune called " + runeName + " to your main hand item!"), false);
             }

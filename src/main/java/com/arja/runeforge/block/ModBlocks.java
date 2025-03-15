@@ -1,7 +1,7 @@
 package com.arja.runeforge.block;
 
 import com.arja.runeforge.Runeforge;
-import com.arja.runeforge.item.ModItems;
+import com.arja.runeforge.item.ModItemGroups;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
@@ -64,7 +64,7 @@ public class ModBlocks
     {
         Runeforge.LOGGER.info("Registering Mod Blocks for " + Runeforge.MOD_ID);
 
-        ItemGroupEvents.modifyEntriesEvent(ModItems.MAGIC_TOOLS_ITEM_GROUP_KEY).register((itemGroup) ->
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.MAGIC_TOOLS_ITEM_GROUP_KEY).register((itemGroup) ->
         {
             itemGroup.add(LEMON_BLOCK.asItem());
             itemGroup.add(ASH_LEAVES.asItem());

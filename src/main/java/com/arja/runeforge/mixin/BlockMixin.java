@@ -2,6 +2,8 @@ package com.arja.runeforge.mixin;
 
 import com.arja.runeforge.component.ModDataComponents;
 import com.arja.runeforge.component.custom.RuneComponent;
+import com.arja.runeforge.item.ModItems;
+import com.arja.runeforge.rune.RuneManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -9,6 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.*;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
@@ -39,34 +42,32 @@ public abstract class BlockMixin
     {
         if (entity instanceof PlayerEntity player)
         {
-            if (player.getMainHandStack().contains(ModDataComponents.RUNE_COMPONENT_TYPE))
+            if (!RuneManager.hasRune(new RuneComponent(Registries.ITEM.getId(ModItems.RUNE_KENAZ).toString()), player.getMainHandStack()))
             {
-                RuneComponent comp = player.getMainHandStack().get(ModDataComponents.RUNE_COMPONENT_TYPE);
-                if (!comp.runeId().equals("rune-forge:kenaz"))
-                    return;
+                return;
+            }
 
-                List<ItemStack> drops = new ArrayList<>();
-                List<ItemStack> originalDrops = cir.getReturnValue();
+            List<ItemStack> drops = new ArrayList<>();
+            List<ItemStack> originalDrops = cir.getReturnValue();
 
-                MinecraftServer server = world.getServer();
-                Map<Identifier, Recipe<?>> smeltableRecipes = getSmeltableRecipes(server);
-                for (ItemStack drop : originalDrops)
+            MinecraftServer server = world.getServer();
+            Map<Identifier, Recipe<?>> smeltableRecipes = getSmeltableRecipes(server);
+            for (ItemStack drop : originalDrops)
+            {
+                smeltableRecipes.forEach((id, recipe) ->
                 {
-                    smeltableRecipes.forEach((id, recipe) ->
+                    if (recipe.getIngredientPlacement().getIngredients().getFirst().test(drop))
                     {
-                        if (recipe.getIngredientPlacement().getIngredients().getFirst().test(drop))
-                        {
-                            ItemStack itemStack = recipe.getDisplays().getFirst().result().getFirst(new ContextParameterMap.Builder().build(new ContextType.Builder().build()));
-                            itemStack.setCount(drop.getCount());
-                            drops.add(itemStack);
-                        }
-                    });
-                }
+                        ItemStack itemStack = recipe.getDisplays().getFirst().result().getFirst(new ContextParameterMap.Builder().build(new ContextType.Builder().build()));
+                        itemStack.setCount(drop.getCount());
+                        drops.add(itemStack);
+                    }
+                });
+            }
 
-                if (!drops.isEmpty())
-                {
-                    cir.setReturnValue(drops);
-                }
+            if (!drops.isEmpty())
+            {
+                cir.setReturnValue(drops);
             }
         }
     }
