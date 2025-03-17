@@ -20,14 +20,14 @@ public class ModModelProvider extends FabricModelProvider
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator)
     {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_BLOCK);
-
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GINUNGAGAP);
 
         blockStateModelGenerator.registerLog(ModBlocks.ASH_LOG).log(ModBlocks.ASH_LOG).wood(ModBlocks.ASH_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_ASH_LOG).log(ModBlocks.STRIPPED_ASH_LOG).wood(ModBlocks.STRIPPED_ASH_WOOD);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ASH_PLANKS);
         blockStateModelGenerator.registerSingleton(ModBlocks.ASH_LEAVES, TexturedModel.LEAVES);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.ASH_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        //blockStateModelGenerator.registerTintableCross(ModBlocks.ASH_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
     }
 
     @Override

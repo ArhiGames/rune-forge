@@ -1,4 +1,4 @@
-﻿package com.arja.runeforge.util;
+package com.arja.runeforge.util;
 
 import com.arja.runeforge.block.ModBlocks;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;

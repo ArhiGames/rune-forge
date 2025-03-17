@@ -1,4 +1,4 @@
-﻿package com.arja.runeforge.rune;
+package com.arja.runeforge.rune;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

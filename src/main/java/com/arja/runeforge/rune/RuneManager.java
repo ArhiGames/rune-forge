@@ -1,7 +1,8 @@
-﻿package com.arja.runeforge.rune;
+package com.arja.runeforge.rune;
 
 import com.arja.runeforge.component.ModDataComponents;
 import com.arja.runeforge.component.custom.RuneComponent;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 
 public class RuneManager

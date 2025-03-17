@@ -10,6 +10,6 @@ public class RuneforgeClient implements ClientModInitializer
     @Override
     public void onInitializeClient()
     {
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ASH_SAPLING, RenderLayer.getCutout());
+        //BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ASH_SAPLING, RenderLayer.getCutout());
     }
 }

@@ -17,14 +17,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
     @Override
     public void generate()
     {
-
         addDrop(ModBlocks.ASH_LOG);
         addDrop(ModBlocks.ASH_WOOD);
         addDrop(ModBlocks.STRIPPED_ASH_WOOD);
         addDrop(ModBlocks.STRIPPED_ASH_LOG);
         addDrop(ModBlocks.ASH_PLANKS);
-        addDrop(ModBlocks.ASH_SAPLING);
+        //addDrop(ModBlocks.ASH_SAPLING);
 
-        addDrop(ModBlocks.ASH_LEAVES, leavesDrops(ModBlocks.ASH_LEAVES, ModBlocks.ASH_SAPLING,0.065F));
+        //addDrop(ModBlocks.ASH_LEAVES, leavesDrops(ModBlocks.ASH_LEAVES, ModBlocks.ASH_SAPLING,0.065F));
     }
 }

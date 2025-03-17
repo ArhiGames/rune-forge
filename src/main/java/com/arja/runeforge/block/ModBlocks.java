@@ -4,6 +4,7 @@ import com.arja.runeforge.Runeforge;
 import com.arja.runeforge.item.ModItemGroups;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -23,6 +24,17 @@ public class ModBlocks
             AbstractBlock.Settings.create().sounds(BlockSoundGroup.MUD),
             true);
 
+    public static final Block GINUNGAGAP = register(
+            "ginungagab",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BLACK)
+                    .pistonBehavior(PistonBehavior.BLOCK)
+                    .dropsNothing()
+                    .luminance(state -> 8),
+            true
+    );
+
     //------------------------------------------------------------------------------------------------------------------
     //Ash tree
     //------------------------------------------------------------------------------------------------------------------
@@ -32,7 +44,7 @@ public class ModBlocks
     public static final Block STRIPPED_ASH_WOOD = register("stripped_ash_wood", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD), true);
     public static final Block ASH_PLANKS = register("ash_planks", Block::new, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS), true);
     public static final Block ASH_LEAVES = register("ash_leaves", Block::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), true);
-    public static final Block ASH_SAPLING = register("ash_sapling", SaplingBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), true);
+    //public static final Block ASH_SAPLING = register("ash_sapling", SaplingBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), true);
 
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem)
     {
@@ -64,14 +76,15 @@ public class ModBlocks
     {
         Runeforge.LOGGER.info("Registering Mod Blocks for " + Runeforge.MOD_ID);
 
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.MAGIC_TOOLS_ITEM_GROUP_KEY).register((itemGroup) ->
+        Registry.register(Registries.ITEM_GROUP, ModItemGroups.MAGIC_BLOCKS_ITEM_GROUP_KEY, ModItemGroups.MAGIC_BLOCKS_ITEM_GROUP);
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.MAGIC_BLOCKS_ITEM_GROUP_KEY).register((itemGroup) ->
         {
-            itemGroup.add(LEMON_BLOCK.asItem());
+            itemGroup.add(GINUNGAGAP.asItem());
             itemGroup.add(ASH_LEAVES.asItem());
+            //itemGroup.add(ASH_SAPLING.asItem());
             itemGroup.add(ASH_LOG.asItem());
             itemGroup.add(STRIPPED_ASH_LOG.asItem());
             itemGroup.add(ASH_WOOD.asItem());
-            itemGroup.add(ASH_SAPLING.asItem());
             itemGroup.add(STRIPPED_ASH_WOOD.asItem());
             itemGroup.add(ASH_PLANKS.asItem());
         });
