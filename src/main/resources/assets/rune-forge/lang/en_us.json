@@ -1,6 +1,10 @@
 ﻿{
   "item.rune-forge.kebab": "Kebab",
 
+  "rune.description.rune-forge:kenaz": "All mined ores are smelted directly",
+
+  "rune.enchantment.type.rune-forge:kenaz": "ᚲ Kenaz",
+
   "itemgroup.magic_tools": "Magic tools",
   "itemgroup.magic_blocks": "Magic blocks",
   "itemgroup.runes": "Runes"

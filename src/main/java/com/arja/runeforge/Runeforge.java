@@ -4,10 +4,12 @@ import com.arja.runeforge.block.ModBlocks;
 import com.arja.runeforge.command.ModCommands;
 import com.arja.runeforge.component.ModDataComponents;
 import com.arja.runeforge.item.ModItems;
+import com.arja.runeforge.rune.RuneManager;
 import com.arja.runeforge.util.ModFlammableBlocks;
 import com.arja.runeforge.util.ModStrippableBlocks;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +22,8 @@ public class Runeforge implements ModInitializer
 	public void onInitialize()
 	{
 		LOGGER.info("Initializing " + MOD_ID);
+
+		RuneManager.registerRuneManager();
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();

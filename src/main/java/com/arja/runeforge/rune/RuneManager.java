@@ -2,11 +2,27 @@ package com.arja.runeforge.rune;
 
 import com.arja.runeforge.component.ModDataComponents;
 import com.arja.runeforge.component.custom.RuneComponent;
-import net.minecraft.block.Blocks;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RuneManager
 {
+    public static void registerRuneManager()
+    {
+        ItemTooltipCallback.EVENT.register((stack, context, type, lines) ->
+        {
+            if (hasAnyRune(stack))
+            {
+                lines.add(1, getTooltipForItem(stack).getFirst().copy().formatted(Formatting.LIGHT_PURPLE));
+            }
+        });
+    }
+
     /**
      * Tries to apply a specified rune to the given item
      * @param runeComponent the component which should be applied
@@ -56,5 +72,34 @@ public class RuneManager
             return true;
         }
         return false;
+    }
+
+    /**
+     * Returns if there is any rune on the given item
+     * @param stack the item stack to check for
+     * @return if there is any rune on stack
+     */
+    public static boolean hasAnyRune(ItemStack stack)
+    {
+        return stack.contains(ModDataComponents.RUNE_COMPONENT_TYPE);
+    }
+
+    /**
+     * Gets the translated tooltip for the rune on the given item stack
+     * @param stack the item stack to get the tool tip from
+     * @return the list of tooltip lines
+     */
+    public static List<Text> getTooltipForItem(ItemStack stack)
+    {
+        List<Text> tooltip = new ArrayList<>();
+        if (hasAnyRune(stack))
+        {
+            RuneComponent rune = stack.get(ModDataComponents.RUNE_COMPONENT_TYPE);
+            if (rune != null)
+            {
+                tooltip.add(Text.translatable("rune.enchantment.type." + rune.runeId()));
+            }
+        }
+        return tooltip;
     }
 }
