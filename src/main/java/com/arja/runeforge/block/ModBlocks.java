@@ -2,6 +2,7 @@ package com.arja.runeforge.block;
 
 import com.arja.runeforge.Runeforge;
 import com.arja.runeforge.item.ModItemGroups;
+import com.arja.runeforge.world.tree.ModSaplingGenerators;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
@@ -44,7 +45,9 @@ public class ModBlocks
     public static final Block STRIPPED_ASH_WOOD = register("stripped_ash_wood", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD), true);
     public static final Block ASH_PLANKS = register("ash_planks", Block::new, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS), true);
     public static final Block ASH_LEAVES = register("ash_leaves", Block::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), true);
-    //public static final Block ASH_SAPLING = register("ash_sapling", SaplingBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), true);
+    public static final Block ASH_SAPLING = register("ash_sapling",
+            settings -> new SaplingBlock(ModSaplingGenerators.ASH, settings),
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), true);
 
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem)
     {
@@ -81,7 +84,7 @@ public class ModBlocks
         {
             itemGroup.add(GINUNGAGAP.asItem());
             itemGroup.add(ASH_LEAVES.asItem());
-            //itemGroup.add(ASH_SAPLING.asItem());
+            itemGroup.add(ASH_SAPLING.asItem());
             itemGroup.add(ASH_LOG.asItem());
             itemGroup.add(STRIPPED_ASH_LOG.asItem());
             itemGroup.add(ASH_WOOD.asItem());

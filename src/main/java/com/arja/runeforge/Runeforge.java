@@ -7,6 +7,7 @@ import com.arja.runeforge.item.ModItems;
 import com.arja.runeforge.rune.RuneManager;
 import com.arja.runeforge.util.ModFlammableBlocks;
 import com.arja.runeforge.util.ModStrippableBlocks;
+import com.arja.runeforge.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -30,6 +31,8 @@ public class Runeforge implements ModInitializer
 		ModCommands.registerCommands();
 
 		ModDataComponents.registerDataComponents();
+
+		ModWorldGeneration.generateModWorldGen();
 
 		ModStrippableBlocks.register();
 		ModFlammableBlocks.register();

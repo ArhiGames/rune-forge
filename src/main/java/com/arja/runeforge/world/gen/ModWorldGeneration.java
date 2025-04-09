@@ -14,6 +14,11 @@ public class ModWorldGeneration extends FabricDynamicRegistryProvider
         super(output, registriesFuture);
     }
 
+    public static void generateModWorldGen()
+    {
+        ModTreeGeneration.generateTrees();
+    }
+
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup, Entries entries)
     {

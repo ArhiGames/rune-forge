@@ -27,7 +27,7 @@ public class ModModelProvider extends FabricModelProvider
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ASH_PLANKS);
         blockStateModelGenerator.registerSingleton(ModBlocks.ASH_LEAVES, TexturedModel.LEAVES);
-        //blockStateModelGenerator.registerTintableCross(ModBlocks.ASH_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.ASH_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
     }
 
     @Override
@@ -35,5 +35,7 @@ public class ModModelProvider extends FabricModelProvider
     {
         itemModelGenerator.register(ModItems.KEBAB, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUNE_KENAZ, Models.GENERATED);
+
+        //itemModelGenerator.register(ModBlocks.ASH_SAPLING.asItem(), Models.GENERATED);
     }
 }
