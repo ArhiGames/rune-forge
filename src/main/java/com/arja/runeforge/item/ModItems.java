@@ -21,6 +21,22 @@ public class ModItems
 
     public static final Item RUNE_KENAZ = registerItem("kenaz", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE));
+    public static final Item RUNE_GEBO = registerItem("gebo", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_JERA = registerItem("jera", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_HAGALAZ = registerItem("hagalaz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_FEHU = registerItem("fehu", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_URUZ = registerItem("uruz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_THURISAZ = registerItem("thurisaz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_ANSUZ = registerItem("ansuz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_RAIDHO = registerItem("raidho", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
 
     private static Item registerItem(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings)
     {
@@ -53,6 +69,14 @@ public class ModItems
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.RUNE_ITEM_GROUP_KEY).register(itemgroup ->
         {
             itemgroup.add(RUNE_KENAZ);
+            itemgroup.add(RUNE_GEBO);
+            itemgroup.add(RUNE_JERA);
+            itemgroup.add(RUNE_HAGALAZ);
+            itemgroup.add(RUNE_FEHU);
+            itemgroup.add(RUNE_URUZ);
+            itemgroup.add(RUNE_THURISAZ);
+            itemgroup.add(RUNE_ANSUZ);
+            itemgroup.add(RUNE_RAIDHO);
         });
     }
 }

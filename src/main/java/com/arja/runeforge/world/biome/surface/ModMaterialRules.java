@@ -9,8 +9,8 @@ import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 public class ModMaterialRules
 {
     private static final MaterialRules.MaterialRule DIRT = makeStateRule(Blocks.DIRT);
+    private static final MaterialRules.MaterialRule STONE = makeStateRule(Blocks.STONE);
     private static final MaterialRules.MaterialRule GRASS_BLOCK = makeStateRule(Blocks.GRASS_BLOCK);
-    private static final MaterialRules.MaterialRule LEMON = makeStateRule(ModBlocks.LEMON_BLOCK);
 
     public static MaterialRules.MaterialRule makeRules()
     {
@@ -19,9 +19,9 @@ public class ModMaterialRules
         MaterialRules.MaterialRule grassSurface = MaterialRules.sequence(MaterialRules.condition(isAtOrAboveWaterLevel, GRASS_BLOCK), DIRT);
 
         return MaterialRules.sequence(
-                MaterialRules.sequence(MaterialRules.condition(MaterialRules.biome(ModBiomes.TEST_BIOME),
+                MaterialRules.sequence(MaterialRules.condition(MaterialRules.biome(ModBiomes.FROZEN_FOREST_KEY),
                                 MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, GRASS_BLOCK)),
-                                MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING, LEMON)),
+                                MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING, STONE)),
                 MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, grassSurface)
         );
     }

@@ -35,6 +35,14 @@ public class ModModelProvider extends FabricModelProvider
     {
         itemModelGenerator.register(ModItems.KEBAB, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUNE_KENAZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_GEBO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_JERA, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_HAGALAZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_FEHU, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_URUZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_THURISAZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_ANSUZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_RAIDHO, Models.GENERATED);
 
         //itemModelGenerator.register(ModBlocks.ASH_SAPLING.asItem(), Models.GENERATED);
     }

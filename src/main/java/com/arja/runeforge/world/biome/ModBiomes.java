@@ -15,12 +15,10 @@ import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 
 public class ModBiomes
 {
-    public static final RegistryKey<Biome> TEST_BIOME = RegistryKey.of(RegistryKeys.BIOME, Identifier.of(Runeforge.MOD_ID, "test_biome"));
     public static final RegistryKey<Biome> FROZEN_FOREST_KEY = RegistryKey.of(RegistryKeys.BIOME, Identifier.of(Runeforge.MOD_ID, "frozen_forest"));
 
     public static void bootstrap(Registerable<Biome> context)
     {
-        context.register(TEST_BIOME, testBiome(context));
         context.register(FROZEN_FOREST_KEY, frozenForest(context));
     }
 
@@ -32,51 +30,6 @@ public class ModBiomes
         DefaultBiomeFeatures.addMineables(builder);
         DefaultBiomeFeatures.addSprings(builder);
         DefaultBiomeFeatures.addFrozenTopLayer(builder);
-    }
-
-    public static Biome testBiome(Registerable<Biome> context)
-    {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-
-        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 200, 4, 4));
-
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        globalOverworldGeneration(biomeBuilder);
-        DefaultBiomeFeatures.addMossyRocks(biomeBuilder);
-        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
-        DefaultBiomeFeatures.addExtraGoldOre(biomeBuilder);
-        DefaultBiomeFeatures.addTallBirchTrees(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
-        DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
-        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
-        DefaultBiomeFeatures.addIcebergs(biomeBuilder);
-
-        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
-        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.7f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(0xe82e3b)
-                        .waterFogColor(0xbf1b26)
-                        .skyColor(0x30c918)
-                        .grassColor(0x7f03fc)
-                        .foliageColor(0xd203fc)
-                        .fogColor(0x22a1e6)
-                        .moodSound(BiomeMoodSound.CAVE)
-                        .build())
-                .build();
     }
 
     public static Biome frozenForest(Registerable<Biome> context)

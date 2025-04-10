@@ -16,15 +16,37 @@ import java.util.List;
 
 public class RuneItemBase extends Item
 {
+    // in ticks
+    protected int cooldownTime = 100;
+
     public RuneItemBase(Settings settings)
     {
         super(settings);
     }
 
+    public void setCooldownTime(int cooldownTime)
+    {
+        this.cooldownTime = cooldownTime;
+    }
+
+    public int getCooldownTime()
+    {
+        return cooldownTime;
+    }
+
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
-        return super.use(world, user, hand);
+        ItemStack itemStack = user.getStackInHand(hand);
+
+        if (user.getItemCooldownManager().isCoolingDown(itemStack))
+        {
+            return ActionResult.FAIL;
+        }
+
+        user.getItemCooldownManager().set(itemStack, cooldownTime);
+
+        return ActionResult.SUCCESS;
     }
 
     @Override
