@@ -25,7 +25,7 @@ public class ModConfiguredFeatures
     {
         register(context, ASH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlocks.ASH_LOG),
-                new StraightTrunkPlacer(5, 6, 2), // Stammhöhe kürzer, damit die Krone früher beginnt
+                new StraightTrunkPlacer(4, 5, 4),
                 BlockStateProvider.of(ModBlocks.ASH_LEAVES),
                 new CherryFoliagePlacer(
                         ConstantIntProvider.create(4), // Blätterradius (breit)

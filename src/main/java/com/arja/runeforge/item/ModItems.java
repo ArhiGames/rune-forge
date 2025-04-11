@@ -37,6 +37,36 @@ public class ModItems
             .rarity(Rarity.RARE));
     public static final Item RUNE_RAIDHO = registerItem("raidho", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE));
+    public static final Item RUNE_WUNJO = registerItem("wunjo", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_NAUTHIZ = registerItem("nauthiz", RuneItemBase::new, new Item.Settings()
+        .rarity(Rarity.RARE));
+    public static final Item RUNE_ISA = registerItem("isa", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_EIHWAZ = registerItem("eihwaz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_PERTHRO = registerItem("perthro", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_ALGIZ = registerItem("algiz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_SOWILO = registerItem("sowilo", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_TIWAZ = registerItem("tiwaz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_BERKANO = registerItem("berkano", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_EHWAZ = registerItem("ehwaz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_MANNAZ = registerItem("mannaz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_LAGUZ = registerItem("laguz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_INGWAZ = registerItem("ingwaz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_DAGAZ = registerItem("dagaz", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
+    public static final Item RUNE_OTHALA = registerItem("othala", RuneItemBase::new, new Item.Settings()
+            .rarity(Rarity.RARE));
 
     private static Item registerItem(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings)
     {
@@ -77,6 +107,21 @@ public class ModItems
             itemgroup.add(RUNE_THURISAZ);
             itemgroup.add(RUNE_ANSUZ);
             itemgroup.add(RUNE_RAIDHO);
+            itemgroup.add(RUNE_WUNJO);
+            itemgroup.add(RUNE_NAUTHIZ);
+            itemgroup.add(RUNE_ISA);
+            itemgroup.add(RUNE_EIHWAZ);
+            itemgroup.add(RUNE_PERTHRO);
+            itemgroup.add(RUNE_ALGIZ);
+            itemgroup.add(RUNE_SOWILO);
+            itemgroup.add(RUNE_TIWAZ);
+            itemgroup.add(RUNE_BERKANO);
+            itemgroup.add(RUNE_EHWAZ);
+            itemgroup.add(RUNE_MANNAZ);
+            itemgroup.add(RUNE_LAGUZ);
+            itemgroup.add(RUNE_INGWAZ);
+            itemgroup.add(RUNE_DAGAZ);
+            itemgroup.add(RUNE_OTHALA);
         });
     }
 }

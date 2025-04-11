@@ -43,6 +43,21 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.RUNE_THURISAZ, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUNE_ANSUZ, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUNE_RAIDHO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_WUNJO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_NAUTHIZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_ISA, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_EIHWAZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_PERTHRO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_ALGIZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_SOWILO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_TIWAZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_BERKANO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_EHWAZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_MANNAZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_LAGUZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_INGWAZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_DAGAZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUNE_OTHALA, Models.GENERATED);
 
         //itemModelGenerator.register(ModBlocks.ASH_SAPLING.asItem(), Models.GENERATED);
     }
