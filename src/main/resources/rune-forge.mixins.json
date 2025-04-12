@@ -4,7 +4,8 @@
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"ExampleMixin",
-		"BlockMixin"
+		"BlockMixin",
+		"AbstractBlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

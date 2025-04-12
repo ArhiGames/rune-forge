@@ -1,6 +1,5 @@
 package com.arja.runeforge.mixin;
 
-import com.arja.runeforge.component.ModDataComponents;
 import com.arja.runeforge.component.custom.RuneComponent;
 import com.arja.runeforge.item.ModItems;
 import com.arja.runeforge.rune.RuneManager;
