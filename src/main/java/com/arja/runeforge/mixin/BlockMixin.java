@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 public abstract class BlockMixin
 {
     @Inject(
-            method = "getDroppedStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)Ljava/util/List;",
+            method = "getDroppedStacks*",
             at = @At("RETURN"),
             cancellable = true
     )

@@ -20,53 +20,53 @@ public class ModItems
             .food(ModFoodComponents.KEBAB_FOOD_COMPONENT, ModFoodComponents.KEBAB_CONSUMABLE_COMPONENT));
 
     public static final Item RUNE_KENAZ = registerItem("kenaz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_GEBO = registerItem("gebo", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_JERA = registerItem("jera", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_HAGALAZ = registerItem("hagalaz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_FEHU = registerItem("fehu", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_URUZ = registerItem("uruz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_THURISAZ = registerItem("thurisaz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_ANSUZ = registerItem("ansuz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_RAIDHO = registerItem("raidho", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_WUNJO = registerItem("wunjo", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_NAUTHIZ = registerItem("nauthiz", RuneItemBase::new, new Item.Settings()
-        .rarity(Rarity.RARE));
+        .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_ISA = registerItem("isa", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_EIHWAZ = registerItem("eihwaz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_PERTHRO = registerItem("perthro", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_ALGIZ = registerItem("algiz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_SOWILO = registerItem("sowilo", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_TIWAZ = registerItem("tiwaz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_BERKANO = registerItem("berkano", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_EHWAZ = registerItem("ehwaz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_MANNAZ = registerItem("mannaz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_LAGUZ = registerItem("laguz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_INGWAZ = registerItem("ingwaz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_DAGAZ = registerItem("dagaz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_OTHALA = registerItem("othala", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE));
+            .rarity(Rarity.RARE).maxCount(1));
 
     private static Item registerItem(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings)
     {

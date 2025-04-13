@@ -5,7 +5,10 @@
 	"mixins": [
 		"ExampleMixin",
 		"BlockMixin",
-		"AbstractBlockMixin"
+		"AbstractBlockMixin",
+		"ServerPlayerEntityMixin",
+		"LivingEntityMixin",
+		"PlayerEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
