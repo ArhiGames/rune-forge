@@ -1,5 +1,8 @@
 package com.arja.runeforge.rune;
 
+import com.arja.runeforge.Runeforge;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -59,6 +62,45 @@ public class RuneItemBase extends Item
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
     {
-        tooltip.add(Text.translatable("rune.description." + Registries.ITEM.getId(stack.getItem())).formatted(Formatting.GOLD));
+        tooltip.add(Text.translatable("rune.description." + Registries.ITEM.getId(stack.getItem())));
+
+        PlayerEntity player = MinecraftClient.getInstance().player;
+        if (player != null)
+        {
+            ItemCooldownManager cooldownManager = player.getItemCooldownManager();
+
+            if (cooldownManager.isCoolingDown(stack))
+            {
+                float cooldownProgress = cooldownManager.getCooldownProgress(stack,
+                        MinecraftClient.getInstance().getRenderTickCounter().getTickDelta(false));
+                int remainingTicks = (int)(getCooldownTime() * (cooldownProgress * 100) / 100);
+
+                if (Runeforge.ticksToSeconds(remainingTicks) < 60)
+                {
+                    tooltip.add(Text.translatable("tooltip.rune.cooldown.seconds", Runeforge.ticksToSeconds(remainingTicks))
+                            .formatted(Formatting.AQUA));
+                }
+                else
+                {
+                    tooltip.add(Text.translatable("tooltip.rune.cooldown.minutes", Runeforge.ticksToMinutes(remainingTicks))
+                            .formatted(Formatting.AQUA));
+                }
+            }
+            else if (cooldownTime > 0)
+            {
+                int seconds = Runeforge.ticksToSeconds(getCooldownTime());
+
+                if (seconds < 60)
+                {
+                    tooltip.add(Text.translatable("tooltip.rune.cooldown.seconds", seconds).formatted(Formatting.AQUA));
+                }
+                else
+                {
+                    tooltip.add(Text.translatable("tooltip.rune.cooldown.minutes", Runeforge.ticksToMinutes(getCooldownTime()))
+                            .formatted(Formatting.AQUA));
+                }
+            }
+        }
+
     }
 }

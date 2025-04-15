@@ -37,4 +37,28 @@ public class Runeforge implements ModInitializer
 		ModStrippableBlocks.register();
 		ModFlammableBlocks.register();
 	}
+
+	public static int secondsToTicks(int seconds)
+	{
+		return seconds * 20;
+	}
+
+	public static int minutesToTicks(int minutes)
+	{
+		return secondsToTicks(minutes * 60);
+	}
+
+	public static int ticksToSeconds(int ticks)
+	{
+		return ticks / 20;
+	}
+
+	public static int ticksToMinutes(int ticks)
+	{
+		if (ticks >= 1200)
+		{
+			return ticksToSeconds(ticks) / 60;
+		}
+		return 0;
+	}
 }

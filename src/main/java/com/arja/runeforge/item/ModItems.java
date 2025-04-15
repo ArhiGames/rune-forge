@@ -2,6 +2,7 @@ package com.arja.runeforge.item;
 
 import com.arja.runeforge.Runeforge;
 import com.arja.runeforge.rune.RuneItemBase;
+import com.arja.runeforge.rune.custom.SowiloRune;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -34,7 +35,7 @@ public class ModItems
     public static final Item RUNE_THURISAZ = registerItem("thurisaz", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_ANSUZ = registerItem("ansuz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE).maxCount(1));
+            .rarity(Rarity.EPIC).maxCount(1));
     public static final Item RUNE_RAIDHO = registerItem("raidho", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_WUNJO = registerItem("wunjo", RuneItemBase::new, new Item.Settings()
@@ -48,9 +49,9 @@ public class ModItems
     public static final Item RUNE_PERTHRO = registerItem("perthro", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_ALGIZ = registerItem("algiz", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE).maxCount(1));
-    public static final Item RUNE_SOWILO = registerItem("sowilo", RuneItemBase::new, new Item.Settings()
-            .rarity(Rarity.RARE).maxCount(1));
+            .rarity(Rarity.EPIC).maxCount(1));
+    public static final Item RUNE_SOWILO = registerItem("sowilo", SowiloRune::new, new Item.Settings()
+            .rarity(Rarity.COMMON).maxCount(1));
     public static final Item RUNE_TIWAZ = registerItem("tiwaz", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_BERKANO = registerItem("berkano", RuneItemBase::new, new Item.Settings()

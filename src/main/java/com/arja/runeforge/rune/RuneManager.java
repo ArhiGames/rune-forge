@@ -3,7 +3,9 @@ package com.arja.runeforge.rune;
 import com.arja.runeforge.component.ModDataComponents;
 import com.arja.runeforge.component.custom.RuneComponent;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
@@ -53,6 +55,18 @@ public class RuneManager
             if (rune != null)
             {
                 return rune.runeId().equals(runeComponent.runeId());
+            }
+        }
+        return false;
+    }
+    public static boolean hasRune(Item runeItem, ItemStack stack)
+    {
+        if (stack.contains(ModDataComponents.RUNE_COMPONENT_TYPE))
+        {
+            RuneComponent rune = stack.get(ModDataComponents.RUNE_COMPONENT_TYPE);
+            if (rune != null)
+            {
+                return rune.runeId().equals(Registries.ITEM.getId(runeItem).toString());
             }
         }
         return false;
