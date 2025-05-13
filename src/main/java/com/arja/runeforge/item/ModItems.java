@@ -2,6 +2,8 @@ package com.arja.runeforge.item;
 
 import com.arja.runeforge.Runeforge;
 import com.arja.runeforge.rune.RuneItemBase;
+import com.arja.runeforge.rune.custom.NauthizRune;
+import com.arja.runeforge.rune.custom.OthalaRune;
 import com.arja.runeforge.rune.custom.SowiloRune;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
@@ -40,7 +42,7 @@ public class ModItems
             .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_WUNJO = registerItem("wunjo", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));
-    public static final Item RUNE_NAUTHIZ = registerItem("nauthiz", RuneItemBase::new, new Item.Settings()
+    public static final Item RUNE_NAUTHIZ = registerItem("nauthiz", NauthizRune::new, new Item.Settings()
         .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_ISA = registerItem("isa", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));
@@ -66,7 +68,7 @@ public class ModItems
             .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_DAGAZ = registerItem("dagaz", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));
-    public static final Item RUNE_OTHALA = registerItem("othala", RuneItemBase::new, new Item.Settings()
+    public static final Item RUNE_OTHALA = registerItem("othala", OthalaRune::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));
 
     private static Item registerItem(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings)

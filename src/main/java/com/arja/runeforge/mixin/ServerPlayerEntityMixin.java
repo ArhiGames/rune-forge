@@ -18,7 +18,7 @@ import java.util.Map;
 public abstract class ServerPlayerEntityMixin
 {
     private boolean hadRuneOnDeath = false;
-    private Map<ItemStack, Integer> algizProtectedItems = new HashMap<>();
+    private Map<ItemStack, Integer> othalaProtectedItems = new HashMap<>();
 
     @Inject(
             method = "onDeath",
@@ -36,9 +36,9 @@ public abstract class ServerPlayerEntityMixin
                 this.hadRuneOnDeath = true;
                 inventory.removeStack(i);
             }
-            else if (RuneManager.hasRune(ModItems.RUNE_ALGIZ, stack))
+            else if (RuneManager.hasRune(ModItems.RUNE_OTHALA, stack))
             {
-                algizProtectedItems.put(stack, i);
+                othalaProtectedItems.put(stack, i);
                 inventory.removeStack(i);
             }
         }
@@ -60,11 +60,11 @@ public abstract class ServerPlayerEntityMixin
             player.totalExperience = oldPlayer.totalExperience;
             player.experienceProgress = oldPlayer.experienceProgress;
         }
-        for (Map.Entry<ItemStack, Integer> algizProtectedStack : oldPlayerMixin.algizProtectedItems.entrySet())
+        for (Map.Entry<ItemStack, Integer> algizProtectedStack : oldPlayerMixin.othalaProtectedItems.entrySet())
         {
             player.getInventory().setStack(algizProtectedStack.getValue(), algizProtectedStack.getKey());
         }
-        algizProtectedItems.clear();
+        othalaProtectedItems.clear();
 
         player.setScore(oldPlayer.getScore());
     }

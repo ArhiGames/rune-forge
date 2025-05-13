@@ -26,9 +26,10 @@
   "item.rune-forge.othala": "ᛟ Othala",
 
   "rune.description.rune-forge:kenaz": "All mined ores are smelted directly",
-  "rune.description.rune-forge:ansuz": "If you have this rune in your inventory, you keep your XP when you die and this rune is destroyed",
-  "rune.description.rune-forge:algiz": "If this rune is on an item, it will not drop when you die",
-  "rune.description.rune-forge:sowilo": "When used, all entities within a radius of 10 blocks get glowing",
+  "rune.description.rune-forge:ansuz": "If you have this rune in your inventory, you\nkeep your XP when you die and this rune is destroyed",
+  "rune.description.rune-forge:algiz": "",
+  "rune.description.rune-forge:sowilo": "Use: All entities within a radius of 10 blocks get glowing\nUse + Shift: Remove glowing\nPassive: Damage all nearby entities if they have glowing",
+  "rune.description.rune-forge:othala": "Use: Teleports you to your current spawn point\nPassive: If this rune is on an item, it won't drop when you die",
 
   "rune.enchantment.type.rune-forge:kenaz": "ᚲ Kenaz",
   "rune.enchantment.type.rune-forge:ansuz": "ᚨ Ansuz",

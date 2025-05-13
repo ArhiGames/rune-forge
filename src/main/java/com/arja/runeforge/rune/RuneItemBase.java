@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
@@ -37,6 +38,11 @@ public class RuneItemBase extends Item
         return cooldownTime;
     }
 
+    public void onTickReceived(ServerPlayerEntity playerEntity)
+    {
+
+    }
+
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
@@ -62,7 +68,15 @@ public class RuneItemBase extends Item
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
     {
-        tooltip.add(Text.translatable("rune.description." + Registries.ITEM.getId(stack.getItem())));
+        String RuneTranslationKey = "rune.description." + Registries.ITEM.getId(stack.getItem());
+        String FullText = Text.translatable(RuneTranslationKey).getString();
+
+        String[] Lines = FullText.split("\n");
+
+        for (String line : Lines)
+        {
+            tooltip.add(Text.literal(line));
+        }
 
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player != null)

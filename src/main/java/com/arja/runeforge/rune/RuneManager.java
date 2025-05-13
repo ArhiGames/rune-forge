@@ -3,9 +3,11 @@ package com.arja.runeforge.rune;
 import com.arja.runeforge.component.ModDataComponents;
 import com.arja.runeforge.component.custom.RuneComponent;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
@@ -21,6 +23,19 @@ public class RuneManager
             if (hasAnyRune(stack))
             {
                 lines.add(1, getTooltipForItem(stack).getFirst().copy().formatted(Formatting.LIGHT_PURPLE));
+            }
+        });
+        ServerTickEvents.END_SERVER_TICK.register(server ->
+        {
+            for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList())
+            {
+                for (ItemStack item : player.getInventory().main)
+                {
+                    if (item.getItem() instanceof RuneItemBase runeItem)
+                    {
+                        runeItem.onTickReceived(player);
+                    }
+                }
             }
         });
     }
