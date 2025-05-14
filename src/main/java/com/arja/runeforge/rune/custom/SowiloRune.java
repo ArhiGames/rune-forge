@@ -58,15 +58,12 @@ public class SowiloRune extends RuneItemBase
         }
     }
 
-    private List<Entity> getNearbyEntities(double radius)
+    private List<Entity> getNearbyEntities(Vec3d userPosition, double radius, Entity ignoredEntity)
     {
-        Vec3d pos = user.getPos();
-        double radius = 10.0;
-
         List<Entity> nearbyEntities = world.getEntitiesByClass(
                 Entity.class,
-                new Box(pos.x - radius, pos.y - radius, pos.z - radius, pos.x + radius, pos.y + radius, pos.z + radius),
-                entity -> entity != user
+                new Box(userPosition.x - radius, userPosition.y - radius, userPosition.z - radius, userPosition.x + radius, userPosition.y + radius, userPosition.z + radius),
+                entity -> entity != ignoredEntity
         );
         return nearbyEntities;
     }
@@ -76,9 +73,10 @@ public class SowiloRune extends RuneItemBase
     {
         if (world.isClient) return ActionResult.SUCCESS;
 
+        List<Entity> nearbyEntities = getNearbyEntities(user.getPos(), 10, user);
         if (user.isSneaking())
         {
-            if (!commitRuneCooldown(sowiloRemoveGlowCooldown)) return;
+            if (!commitRuneCooldown(user, hand, sowiloRemoveGlowCooldown)) return;
             for (Entity entity : nearbyEntities)
             {
                 if (entity instanceof LivingEntity)
