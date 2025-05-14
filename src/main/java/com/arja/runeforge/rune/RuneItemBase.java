@@ -43,17 +43,26 @@ public class RuneItemBase extends Item
 
     }
 
+    protected boolean commitRuneCooldown(PlayerEntity user, Hand hand, int cooldownTime = -1)
+    {
+        ItemStack itemStack = user.getStackInHand(hand);
+        
+        if (user.getItemCooldownManager().isCoolingDown(itemStack))
+        {
+            return false;
+        }
+
+        user.getItemCooldownManager().set(itemStack, cooldownTime == -1 ? this.cooldownTime : cooldownTime);
+        return true;
+    }
+
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
-        ItemStack itemStack = user.getStackInHand(hand);
-
-        if (user.getItemCooldownManager().isCoolingDown(itemStack))
+        if (!commitRuneCooldown(user, hand))
         {
             return ActionResult.FAIL;
-        }
-
-        user.getItemCooldownManager().set(itemStack, cooldownTime);
+        }    
 
         return ActionResult.SUCCESS;
     }
