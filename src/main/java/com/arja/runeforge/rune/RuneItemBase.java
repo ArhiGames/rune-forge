@@ -43,7 +43,7 @@ public class RuneItemBase extends Item
 
     }
 
-    protected boolean commitRuneCooldown(PlayerEntity user, Hand hand, int cooldownTime = -1)
+    protected boolean commitRuneCooldown(PlayerEntity user, Hand hand, int cooldownTime)
     {
         ItemStack itemStack = user.getStackInHand(hand);
         
