@@ -2,6 +2,7 @@ package com.arja.runeforge.item;
 
 import com.arja.runeforge.Runeforge;
 import com.arja.runeforge.rune.RuneItemBase;
+import com.arja.runeforge.rune.custom.BerkanoRune;
 import com.arja.runeforge.rune.custom.NauthizRune;
 import com.arja.runeforge.rune.custom.OthalaRune;
 import com.arja.runeforge.rune.custom.SowiloRune;
@@ -56,7 +57,7 @@ public class ModItems
             .rarity(Rarity.COMMON).maxCount(1));
     public static final Item RUNE_TIWAZ = registerItem("tiwaz", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));
-    public static final Item RUNE_BERKANO = registerItem("berkano", RuneItemBase::new, new Item.Settings()
+    public static final Item RUNE_BERKANO = registerItem("berkano", BerkanoRune::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));
     public static final Item RUNE_EHWAZ = registerItem("ehwaz", RuneItemBase::new, new Item.Settings()
             .rarity(Rarity.RARE).maxCount(1));

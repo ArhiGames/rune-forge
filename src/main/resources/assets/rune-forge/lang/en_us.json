@@ -30,6 +30,7 @@
   "rune.description.rune-forge:algiz": "",
   "rune.description.rune-forge:sowilo": "Use: All entities within a radius of 10 blocks get glowing\nUse + Shift: Remove glowing\nPassive: Damage all nearby entities if they have glowing",
   "rune.description.rune-forge:othala": "Use: Teleports you to your current spawn point\nPassive: If this rune is on an item, it won't drop when you die",
+  "rune.description.rune-forge:berkano": "Use: All crops within a radius of 5 blocks are grown out immediately",
 
   "rune.enchantment.type.rune-forge:kenaz": "ᚲ Kenaz",
   "rune.enchantment.type.rune-forge:ansuz": "ᚨ Ansuz",

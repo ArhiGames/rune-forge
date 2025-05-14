@@ -60,12 +60,11 @@ public class SowiloRune extends RuneItemBase
 
     private List<Entity> getNearbyEntities(World world, Vec3d userPosition, double radius, Entity ignoredEntity)
     {
-        List<Entity> nearbyEntities = world.getEntitiesByClass(
+        return world.getEntitiesByClass(
                 Entity.class,
                 new Box(userPosition.x - radius, userPosition.y - radius, userPosition.z - radius, userPosition.x + radius, userPosition.y + radius, userPosition.z + radius),
                 entity -> entity != ignoredEntity
         );
-        return nearbyEntities;
     }
 
     @Override
