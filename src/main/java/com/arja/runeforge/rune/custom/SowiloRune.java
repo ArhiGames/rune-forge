@@ -19,6 +19,7 @@ import java.util.List;
 
 public class SowiloRune extends RuneItemBase
 {
+    private final int sowiloRemoveGlowCooldown = 60;
     private int passiveDamageTick = 0;
 
     public SowiloRune(Settings settings)
@@ -57,16 +58,8 @@ public class SowiloRune extends RuneItemBase
         }
     }
 
-    @Override
-    public ActionResult use(World world, PlayerEntity user, Hand hand)
+    private List<Entity> getNearbyEntities(double radius)
     {
-        ActionResult superResult = super.use(world, user, hand);
-        if (superResult != ActionResult.SUCCESS)
-        {
-            return superResult;
-        }
-        if (world.isClient) return ActionResult.SUCCESS;
-
         Vec3d pos = user.getPos();
         double radius = 10.0;
 
@@ -75,9 +68,17 @@ public class SowiloRune extends RuneItemBase
                 new Box(pos.x - radius, pos.y - radius, pos.z - radius, pos.x + radius, pos.y + radius, pos.z + radius),
                 entity -> entity != user
         );
+        return nearbyEntities;
+    }
+
+    @Override
+    public ActionResult use(World world, PlayerEntity user, Hand hand)
+    {
+        if (world.isClient) return ActionResult.SUCCESS;
 
         if (user.isSneaking())
         {
+            if (!commitRuneCooldown(sowiloRemoveGlowCooldown)) return;
             for (Entity entity : nearbyEntities)
             {
                 if (entity instanceof LivingEntity)
@@ -89,6 +90,11 @@ public class SowiloRune extends RuneItemBase
         }
         else
         {
+            ActionResult superResult = super.use(world, user, hand);
+            if (superResult != ActionResult.SUCCESS)
+            {
+                return superResult;
+            }
             for (Entity entity : nearbyEntities)
             {
                 if (entity instanceof LivingEntity)
