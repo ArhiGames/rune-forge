@@ -76,7 +76,7 @@ public class SowiloRune extends RuneItemBase
         List<Entity> nearbyEntities = getNearbyEntities(world, user.getPos(), 10, user);
         if (user.isSneaking())
         {
-            if (!commitRuneCooldown(user, hand, sowiloRemoveGlowCooldown, -1)) return ActionResult.FAIL;
+            if (!commitRuneCooldown(user, hand, sowiloRemoveGlowCooldown)) return ActionResult.FAIL;
             for (Entity entity : nearbyEntities)
             {
                 if (entity instanceof LivingEntity)
