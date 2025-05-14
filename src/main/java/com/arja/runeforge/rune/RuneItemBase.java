@@ -59,7 +59,7 @@ public class RuneItemBase extends Item
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
-        if (!commitRuneCooldown(user, hand))
+        if (!commitRuneCooldown(user, hand, -1))
         {
             return ActionResult.FAIL;
         }    
